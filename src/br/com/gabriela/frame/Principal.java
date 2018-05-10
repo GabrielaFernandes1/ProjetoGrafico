@@ -299,17 +299,14 @@ public class Principal extends javax.swing.JFrame {
     private void jBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadastrarActionPerformed
         String nome,disciplina;
         int matricula;
-        
-        
-        matricula =Integer.parseInt(jTMatricula.getText() );
+     
+        matricula = Integer.parseInt(jTMatricula.getText() );
         nome = jTNome.getText();
         disciplina = jTDisciplina.getText();
-         
-        
+                 
        Aluno a = new Aluno(nome, matricula);
-       //Nota n = new Nota(disciplina, nota);
        
-       JOptionPane.showMessageDialog(this, a.toString());//+"\n"+n.toString());
+       JOptionPane.showMessageDialog(this, a.toString());
     }//GEN-LAST:event_jBCadastrarActionPerformed
 
     private void jCDisciplinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCDisciplinaActionPerformed
