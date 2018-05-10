@@ -17,7 +17,8 @@ import javax.swing.JOptionPane;
 public class Principal extends javax.swing.JFrame {
     ArrayList<Aluno> alunos = new ArrayList<>();
     
-     float calculo;
+    
+     
    
     /**
      * Creates new form Principal
@@ -57,7 +58,7 @@ public class Principal extends javax.swing.JFrame {
         jTN4 = new javax.swing.JTextField();
         jTN2 = new javax.swing.JTextField();
         jBCalcular = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jCDisciplina = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -131,7 +132,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLCalculoMedia.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLCalculoMedia.setForeground(new java.awt.Color(204, 0, 204));
-        jLCalculoMedia.setText("Calculo de Média");
+        jLCalculoMedia.setText("Cálculo de Média");
 
         jPNotas.setBackground(new java.awt.Color(204, 0, 204));
         jPNotas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -170,8 +171,13 @@ public class Principal extends javax.swing.JFrame {
         jBCalcular.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jBCalcular.setText("Calcular");
 
-        jComboBox1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCDisciplina.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jCDisciplina.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "< Selecione uma Opção >", "Prova", "Seminário", "Trabalho" }));
+        jCDisciplina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCDisciplinaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPNotasLayout = new javax.swing.GroupLayout(jPNotas);
         jPNotas.setLayout(jPNotasLayout);
@@ -182,11 +188,11 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jPNotasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLDisciplina)
                     .addComponent(jTDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPNotasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPNotasLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPNotasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPNotasLayout.createSequentialGroup()
                                 .addGap(57, 57, 57)
@@ -210,9 +216,9 @@ public class Principal extends javax.swing.JFrame {
                                         .addGroup(jPNotasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jTN4, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTN3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addContainerGap(74, Short.MAX_VALUE))
+                        .addContainerGap(109, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPNotasLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
                         .addComponent(jBCalcular)
                         .addGap(28, 28, 28))))
         );
@@ -255,7 +261,7 @@ public class Principal extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(jPNotasLayout.createSequentialGroup()
                         .addGap(47, 47, 47)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jCDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
@@ -268,12 +274,12 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPNotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(156, 156, 156)
                         .addComponent(jLCalculoMedia)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -293,18 +299,22 @@ public class Principal extends javax.swing.JFrame {
     private void jBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadastrarActionPerformed
         String nome,disciplina;
         int matricula;
-        //float nota = 0;
+        
         
         matricula =Integer.parseInt(jTMatricula.getText() );
         nome = jTNome.getText();
-       // disciplina = jTDisciplina.getText();
-       // nota=calculo;
+        disciplina = jTDisciplina.getText();
+         
         
        Aluno a = new Aluno(nome, matricula);
        //Nota n = new Nota(disciplina, nota);
        
        JOptionPane.showMessageDialog(this, a.toString());//+"\n"+n.toString());
     }//GEN-LAST:event_jBCadastrarActionPerformed
+
+    private void jCDisciplinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCDisciplinaActionPerformed
+       
+    }//GEN-LAST:event_jCDisciplinaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -344,7 +354,7 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCadastrar;
     private javax.swing.JButton jBCalcular;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jCDisciplina;
     private javax.swing.JLabel jLAluno;
     private javax.swing.JLabel jLCalculoMedia;
     private javax.swing.JLabel jLDisciplina;
